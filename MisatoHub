@@ -9,8 +9,8 @@ local Window = Rayfield:CreateWindow({
       FileName = "Big Hub"
    },
    Discord = {
-      Enabled = false,
-      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      Enabled = true,
+      Invite = "discord.gg/KeNSjxXyuk", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
    KeySystem = true, -- Set this to true to use our key system
@@ -26,6 +26,8 @@ local Window = Rayfield:CreateWindow({
 })
 
 local Tab = Window:CreateTab("Auto Farm", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("Rifle farm")
 
 local Button = Tab:CreateButton({
 	Name = "Fishman Insta TP",
@@ -113,8 +115,65 @@ end
    end,
 })
 
-local Tab = Window:CreateTab("MoveStack", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Auto Stats - Soon")
 
+local Tab = Window:CreateTab("Island tp ", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("Insta TP")
+
+local Button = Tab:CreateButton({
+   Name = "FISHMAN INSTA TP",
+   Callback = function()
+   	     local teleport_table = {
+    location25 = Vector3.new(5639, -94, -16611) -- your desired position
+}
+
+local tween_s = game:GetService('TweenService')
+local tweeninfo = TweenInfo.new(0,Enum.EasingStyle.Linear)
+
+local lp = game.Players.LocalPlayer
+
+function bypass_teleport(v)
+    if lp.Character and 
+    lp.Character:FindFirstChild('HumanoidRootPart') then
+        local cf = CFrame.new(v)
+        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+        a:Play()
+    end
+end
+
+bypass_teleport(teleport_table.location25)
+      		print("button pressed")
+  	end    
+})
+
+local Button = Tab:CreateButton({
+   Name = "SHARK PARK INSTA TP",
+   Callback = function()
+     local teleport_table = {
+    location7 = Vector3.new(545, 20, -13647)
+}
+local tween_s = game:GetService('TweenService')
+local tweeninfo = TweenInfo.new(0,Enum.EasingStyle.Linear)
+
+local lp = game.Players.LocalPlayer
+
+function bypass_teleport(v)
+    if lp.Character and 
+    lp.Character:FindFirstChild('HumanoidRootPart') then
+        local cf = CFrame.new(v)
+        local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+        a:Play()
+    end
+end
+
+bypass_teleport(teleport_table.location7)
+      		print("button pressed")
+   end,
+})
+
+local Tab = Window:CreateTab("MoveStack", 4483362458) -- Title, Image
+local Section = Tab:CreateSection("Suna Stack")
 local Button = Tab:CreateButton({
    Name = "Suna Stack",
    Callback = function()
@@ -146,8 +205,54 @@ game:GetService("ReplicatedStorage").PlayerRemotes:FindFirstChild(game.Players.L
    end,
 })
 
+local Tab = Window:CreateTab("Fighting Style", 4483362458)
+
+local Section = Tab:CreateSection("1 SS")
+
+local Button = Tab:CreateButton({
+   Name = "1 SS | 10K Peli",
+   Callback = function()
+   local args = {
+    [1] = "1SS"
+}
+
+game:GetService("ReplicatedStorage").Events.learnStyle:FireServer(unpack(args))
+   -- The function that takes place when the button is pressed
+   end,
+})
+
+local Section = Tab:CreateSection("BLACK LEG")
+
+local Button = Tab:CreateButton({
+   Name = "Black leg | 9K Peli",
+   Callback = function()
+local args = {
+    [1] = "BlackLeg"
+}
+game:GetService("ReplicatedStorage").Events.learnStyle:FireServer(unpack(args))
+   -- The function that takes place when the button is pressed
+   end,
+})
+
+
+local Section = Tab:CreateSection("Rokushiki")
+
+local Button = Tab:CreateButton({
+   Name = "Rokushiki| 15K Peli",
+   Callback = function()
+local args = {
+    [1] = "Rokushiki"
+}
+
+game:GetService("ReplicatedStorage").Events.learnStyle:FireServer(unpack(args))
+
+   -- The function that takes place when the button is pressed
+   end,
+})
 
 local Tab = Window:CreateTab("Other", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("Anti AFK")
 
 local Button = Tab:CreateButton({
    Name = "Anti AFK",
@@ -172,5 +277,27 @@ game:service'Players'.LocalPlayer.Idled:connect(function()
 bb:CaptureController()bb:ClickButton2(Vector2.new())
 ab.Text="PHOE SUCK"wait(2)ab.Text="Status : Active"end)
    -- The function that takes place when the button is pressed
+   end,
+})
+
+local Section = Tab:CreateSection("Chat logger")
+
+local Button = Tab:CreateButton({
+   Name = "Chat logger",
+   Callback = function()
+   loadstring(game:HttpGet("https://pastebin.com/raw/stggPUBM", true))()
+   end,
+})
+
+local Section = Tab:CreateSection("Self knockout")
+
+local Button = Tab:CreateButton({
+   Name = "Kill myself",
+   Callback = function()
+  	local args = {
+    [1] = "self"
+}
+
+game:GetService("ReplicatedStorage").Events.KnockedOut:FireServer(unpack(args))
    end,
 })
