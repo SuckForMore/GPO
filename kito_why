@@ -141,7 +141,7 @@ local Button = Tab:CreateButton({
     [1] = CFrame.new(8004.78125, -2153.83203125, -17135.134765625) * CFrame.Angles(0.00020779608166776597, -0.595834493637085, -0.0000564948350074701)
 }
 
-game:GetService("ReplicatedStorage").PlayerRemotes:FindFirstChild("kito_why1|ServerScriptService.Skills.Skills.SkillContainer.Suna-Suna.Desert Spada"):FireServer(unpack(args))
+game:GetService("ReplicatedStorage").PlayerRemotes:FindFirstChild("AzimawGg|ServerScriptService.Skills.Skills.SkillContainer.Suna-Suna.Desert Spada"):FireServer(unpack(args))
 
    -- The function that takes place when the button is pressed
    end,
