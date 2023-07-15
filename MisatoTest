@@ -291,7 +291,7 @@ local Button = Tab:CreateButton({
 })
 
 local Keybind = Tab:CreateKeybind({
-   Name = "Gura Z Bind",
+   Name = "Gura X Bind",
    CurrentKeybind = "Z",
    HoldToInteract = false,
    Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
