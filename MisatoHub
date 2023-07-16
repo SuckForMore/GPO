@@ -9,8 +9,8 @@ local Window = Rayfield:CreateWindow({
       FileName = "Big Hub"
    },
    Discord = {
-      Enabled = true,
-      Invite = "discord.gg/Misato", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
    KeySystem = true, -- Set this to true to use our key system
@@ -22,7 +22,7 @@ local Window = Rayfield:CreateWindow({
       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
       Key = {"madk1d1love"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
-   }
+   }--
 })
 
 local Tab = Window:CreateTab("Auto Farm", 4483362458) -- Title, Image
@@ -175,7 +175,7 @@ bypass_teleport(teleport_table.location7)
 local Tab = Window:CreateTab("MoveStack", 4483362458) -- Title, Image
 local Section = Tab:CreateSection("Suna Stack")
 local Button = Tab:CreateButton({
-   Name = "Suna Stack",
+   Name = "Suna X Stack",
    Callback = function()
    while wait() do
    local args = {
@@ -193,7 +193,7 @@ end
 })
 
 local Button = Tab:CreateButton({
-   Name = "SunaStack Release",
+   Name = "Suna X Release",
    Callback = function()
   local args = {
     [1] = CFrame.new(8004.78125, -2153.83203125, -17135.134765625) * CFrame.Angles(0.00020779608166776597, -0.595834493637085, -0.0000564948350074701)
@@ -202,6 +202,153 @@ local Button = Tab:CreateButton({
 game:GetService("ReplicatedStorage").PlayerRemotes:FindFirstChild(game.Players.LocalPlayer.Name.."|ServerScriptService.Skills.Skills.SkillContainer.Suna-Suna.Desert Spada"):FireServer(unpack(args))
 
    -- The function that takes place when the button is pressed
+   end,
+})
+
+local Keybind = Tab:CreateKeybind({
+   Name = "Suna X Bind",
+   CurrentKeybind = "X",
+   HoldToInteract = false,
+   Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Keybind)
+  local args = {
+    [1] = CFrame.new(8004.78125, -2153.83203125, -17135.134765625) * CFrame.Angles(0.00020779608166776597, -0.595834493637085, -0.0000564948350074701)
+}
+
+game:GetService("ReplicatedStorage").PlayerRemotes:FindFirstChild(game.Players.LocalPlayer.Name.."|ServerScriptService.Skills.Skills.SkillContainer.Suna-Suna.Desert Spada"):FireServer(unpack(args))
+   end,
+})
+
+local Section = Tab:CreateSection("Gura Stack")
+
+local Button = Tab:CreateButton({
+   Name = "Gura E Stack",
+   Callback = function()
+   while wait() do
+   local args = {
+    [1] = "Shock Punch",
+    [2] = {
+        ["cf"] = CFrame.new(1023.5599365234375, 18.285139083862305, 1178.3212890625) * CFrame.Angles(-0.44599103927612305, -0.5016222596168518, -0.2259766310453415)
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+
+   end
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Gura E Release",
+   Callback = function()
+   local args = {
+    [1] = CFrame.new(1009.815673828125, 8.000863075256348, 1186.8251953125) * CFrame.Angles(-0.03916183114051819, -0.9471627473831177, -0.03076186776161194)
+}
+
+game:GetService("ReplicatedStorage").PlayerRemotes:FindFirstChild(game.Players.LocalPlayer.Name.."|ServerScriptService.Skills.Skills.SkillContainer.Gura-Gura.Shock Punch"):FireServer(unpack(args))
+
+   end,
+})
+
+local Keybind = Tab:CreateKeybind({
+   Name = "Gura E Bind",
+   CurrentKeybind = "E",
+   HoldToInteract = false,
+   Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Keybind)
+   local args = {
+    [1] = CFrame.new(1009.815673828125, 8.000863075256348, 1186.8251953125) * CFrame.Angles(-0.03916183114051819, -0.9471627473831177, -0.03076186776161194)
+}
+
+game:GetService("ReplicatedStorage").PlayerRemotes:FindFirstChild(game.Players.LocalPlayer.Name.."|ServerScriptService.Skills.Skills.SkillContainer.Gura-Gura.Shock Punch"):FireServer(unpack(args))
+   -- The function that takes place when the keybind is pressed
+   -- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
+   end,
+})
+
+local Section = Tab:CreateSection("Gura X skill")
+
+local Button = Tab:CreateButton({
+   Name = "Gura X Stack",
+   Callback = function()
+   while wait() do
+   local args = {
+    [1] = "Blast Clutcher"
+}
+
+game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+
+   end
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Gura X Release",
+   Callback = function()
+   		game:GetService("ReplicatedStorage").PlayerRemotes:FindFirstChild(game.Players.LocalPlayer.Name.."|ServerScriptService.Skills.Skills.SkillContainer.Gura-Gura.Blast Clutcher"):FireServer()
+
+   end,
+})
+
+local Keybind = Tab:CreateKeybind({
+   Name = "Gura X Bind",
+   CurrentKeybind = "Z",
+   HoldToInteract = false,
+   Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Keybind)
+   game:GetService("ReplicatedStorage").PlayerRemotes:FindFirstChild(game.Players.LocalPlayer.Name.."|ServerScriptService.Skills.Skills.SkillContainer.Gura-Gura.Blast Clutcher"):FireServer()
+   -- The function that takes place when the keybind is pressed
+   -- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
+   end,
+})
+
+local Section = Tab:CreateSection("Gura С Stack")
+
+local Button = Tab:CreateButton({
+   Name = "Gura C Stack",
+   Callback = function()
+   while wait() do
+   local args = {
+    [1] = "Sea Quake",
+    [2] = {
+        ["cf"] = CFrame.new(1067.3492431640625, 6.074573040008545, 1255.9991455078125) * CFrame.Angles(-0.7310757637023926, -0.9929776787757874, -0.644305408000946)
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+
+   
+   -- The function that takes place when the button is pressed
+   end
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Gura C Release",
+   Callback = function()
+   local args = {
+    [1] = CFrame.new(1046.48974609375, 10.189231872558594, 1271.991943359375) * CFrame.Angles(0.0005373285384848714, -1.492652177810669, -0.000004772240117745241)
+}
+
+game:GetService("ReplicatedStorage").PlayerRemotes:FindFirstChild(game.Players.LocalPlayer.Name.."|ServerScriptService.Skills.Skills.SkillContainer.Gura-Gura.Sea Quake"):FireServer(unpack(args))
+
+   -- The function that takes place when the button is pressed
+   end,
+})
+
+local Keybind = Tab:CreateKeybind({
+   Name = "Gura C Bind",
+   CurrentKeybind = "C",
+   HoldToInteract = false,
+   Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Keybind)
+   local args = {
+    [1] = CFrame.new(1046.48974609375, 10.189231872558594, 1271.991943359375) * CFrame.Angles(0.0005373285384848714, -1.492652177810669, -0.000004772240117745241)
+}
+
+game:GetService("ReplicatedStorage").PlayerRemotes:FindFirstChild(game.Players.LocalPlayer.Name.."|ServerScriptService.Skills.Skills.SkillContainer.Gura-Gura.Sea Quake"):FireServer(unpack(args))
+   -- The function that takes place when the keybind is pressed
+   -- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
    end,
 })
 
@@ -247,6 +394,19 @@ local args = {
 game:GetService("ReplicatedStorage").Events.learnStyle:FireServer(unpack(args))
 
    -- The function that takes place when the button is pressed
+   end,
+})
+
+local Section = Tab:CreateSection("Geppo")
+
+local Button = Tab:CreateButton({
+   Name = "Geppo| 50K Peli",
+   Callback = function()
+   local args = {
+    [1] = "skyWalkTrainer"
+}
+
+game:GetService("ReplicatedStorage").Events.learnStyle:FireServer(unpack(args))
    end,
 })
 
@@ -301,3 +461,4 @@ local Button = Tab:CreateButton({
 game:GetService("ReplicatedStorage").Events.KnockedOut:FireServer(unpack(args))
    end,
 })
+
