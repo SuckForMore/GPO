@@ -117,6 +117,51 @@ end
 
 local Section = Tab:CreateSection("Auto Stats - Soon")
 
+local Tab = Window:CreateTab("ESP", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("Peli Chests esp")
+
+local Button = Tab:CreateButton({
+   Name = "Peli Chest esp",
+   Callback = function()
+   local RunService = game:GetService("RunService")
+
+RunService.RenderStepped:Connect(function()
+for i, v in pairs(game:GetService("Workspace").Env:GetChildren()) do
+    if v:IsA("Model") then
+    if v then
+    if not v:FindFirstChild("ESP") then
+        local BillboardGui = Instance.new("BillboardGui")
+        local TextLabel = Instance.new("TextLabel")
+
+        BillboardGui.Parent = v
+        BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        BillboardGui.Active = true
+        BillboardGui.AlwaysOnTop = true
+        BillboardGui.LightInfluence = 1
+        BillboardGui.MaxDistance = 75000
+        BillboardGui.Size = UDim2.new(200, 0, 200, 0)
+        BillboardGui.Name = "ESP"
+
+        TextLabel.Parent = BillboardGui
+        TextLabel.BackgroundColor3 = Color3.new(0, 0, 0)
+        TextLabel.BackgroundTransparency = 1
+        TextLabel.BorderSizePixel = 0
+        TextLabel.Size = UDim2.new(1, 0, 1, 1)
+        TextLabel.Font = Enum.Font.Ubuntu
+        TextLabel.Text = "Peli Chest"
+        TextLabel.TextColor3 = Color3.fromRGB(149, 69, 53)
+        TextLabel.TextScaled = false
+        TextLabel.TextSize = 25
+        TextLabel.TextWrapped = true
+        end
+    end
+    end
+end
+end)
+   end,
+})
+
 local Tab = Window:CreateTab("Island tp ", 4483362458) -- Title, Image
 
 local Section = Tab:CreateSection("Insta TP")
