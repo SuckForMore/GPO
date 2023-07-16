@@ -400,7 +400,7 @@ game:GetService("ReplicatedStorage").Events.learnStyle:FireServer(unpack(args))
 local Section = Tab:CreateSection("Geppo")
 
 local Button = Tab:CreateButton({
-   Name = "Geppo|50K Peli",
+   Name = "Geppo| 50K Peli",
    Callback = function()
    local args = {
     [1] = "skyWalkTrainer"
