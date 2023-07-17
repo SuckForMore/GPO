@@ -17,11 +17,11 @@ local Window = Rayfield:CreateWindow({
    KeySettings = {
       Title = "Enter Key",
       Subtitle = "Misato Hub - Key",
-      Note = "Key u can get in Discrod Misato Hub",
+      Note = "In Discrod Misato  Hub",
       FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"YEYESPMADE"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+      Key = {"ThisKeyForTester"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }--
 })
 
@@ -141,7 +141,7 @@ for i, v in pairs(game:GetService("Workspace").Env:GetChildren()) do
         BillboardGui.LightInfluence = 1
         BillboardGui.MaxDistance = 1500
         BillboardGui.Size = UDim2.new(200, 0, 200, 0)
-        BillboardGui.Name = "ESP"
+        BillboardGui.Name = "ESP"	
 
         TextLabel.Parent = BillboardGui
         TextLabel.BackgroundColor3 = Color3.new(0, 0, 0)
@@ -399,14 +399,15 @@ local Button = Tab:CreateButton({
    Name = "Gura C Stack",
    Callback = function()
    while wait() do
-   local args = {
+local args = {
     [1] = "Sea Quake",
     [2] = {
-        ["cf"] = CFrame.new(1067.3492431640625, 6.074573040008545, 1255.9991455078125) * CFrame.Angles(-0.7310757637023926, -0.9929776787757874, -0.644305408000946)
+        ["cf"] = CFrame.new(9418.330078125, 136.497802734375, 9504.0205078125) * CFrame.Angles(-2.9427196979522705, 0.6530601382255554, 3.0197415351867676)
     }
 }
 
 game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+
 
    
    -- The function that takes place when the button is pressed
@@ -438,6 +439,80 @@ local Keybind = Tab:CreateKeybind({
 }
 
 game:GetService("ReplicatedStorage").PlayerRemotes:FindFirstChild(game.Players.LocalPlayer.Name.."|ServerScriptService.Skills.Skills.SkillContainer.Gura-Gura.Sea Quake"):FireServer(unpack(args))
+   -- The function that takes place when the keybind is pressed
+   -- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
+   end,
+})
+
+local Section = Tab:CreateSection("Mera Stack")
+
+local Button = Tab:CreateButton({
+   Name = "Mera Z Stack",
+   Callback = function()
+   while wait() do
+   local args = {
+    [1] = "Hiken"
+}
+
+game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+
+   -- The function that takes place when the button is pressed
+   end
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Mera Z Release",
+   Callback = function()
+   game:GetService("ReplicatedStorage").PlayerRemotes:FindFirstChild(game.Players.LocalPlayer.Name.."|ServerScriptService.Skills.Skills.SkillContainer.Mera-Mera.Hiken"):InvokeServer()
+
+   -- The function that takes place when the button is pressed
+   end,
+})
+
+local Keybind = Tab:CreateKeybind({
+   Name = "Mera Z Bind",
+   CurrentKeybind = "Z",
+   HoldToInteract = false,
+   Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Keybind)
+   game:GetService("ReplicatedStorage").PlayerRemotes:FindFirstChild(game.Players.LocalPlayer.Name.."|ServerScriptService.Skills.Skills.SkillContainer.Mera-Mera.Hiken"):InvokeServer()
+   -- The function that takes place when the keybind is pressed
+   -- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
+   end,
+})
+
+local Section = Tab:CreateSection("Mera X Stack")
+
+local Button = Tab:CreateButton({
+   Name = "Mera X Stack",
+   Callback = function()
+   while wait() do
+   local args = {
+    [1] = "Flame Pillar"
+}
+
+game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+	end
+   -- The function that takes place when the button is pressed
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Mera X Release",
+   Callback = function()
+   game:GetService("ReplicatedStorage").PlayerRemotes:FindFirstChild(game.Players.LocalPlayer.Name.."|ServerScriptService.Skills.Skills.SkillContainer.Mera-Mera.Flame Pillar"):InvokeServer()
+   -- The function that takes place when the button is pressed
+   end,
+})
+
+local Keybind = Tab:CreateKeybind({
+   Name = "Mera X Bind",
+   CurrentKeybind = "X",
+   HoldToInteract = false,
+   Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Keybind)
+   game:GetService("ReplicatedStorage").PlayerRemotes:FindFirstChild(game.Players.LocalPlayer.Name.."|ServerScriptService.Skills.Skills.SkillContainer.Mera-Mera.Flame Pillar"):InvokeServer()
    -- The function that takes place when the keybind is pressed
    -- The variable (Keybind) is a boolean for whether the keybind is being held or not (HoldToInteract needs to be true)
    end,
