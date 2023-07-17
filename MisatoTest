@@ -1733,6 +1733,40 @@ local Keybind = Tab:CreateKeybind({
    end,
 })
 
+local Section = Tab:CreateSection("Item Stack")
+
+local Section = Tab:CreateSection("Kraken Blade Stack")
+
+local Button = Tab:CreateButton({
+   Name = "Kraken Blade R Stack",
+   Callback = function()
+   while wait() do
+   local args = {
+    [1] = "Slayer Cross Slash"
+}
+
+game:GetService("ReplicatedStorage").Events.Skill:InvokeServer(unpack(args))
+   end
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Kraken Blade R Release",
+   Callback = function()
+   game:GetService("ReplicatedStorage").PlayerRemotes:FindFirstChild(game.Players.LocalPlayer.Name.."|ServerScriptService.Skills.Skills.SkillContainer.Kraken Blade.Slayer Cross Slash"):FireServer()
+   end,
+})
+
+local Keybind = Tab:CreateKeybind({
+   Name = "Kraken Blade R Bind",
+   CurrentKeybind = "R",
+   HoldToInteract = false,
+   Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Keybind)
+  game:GetService("ReplicatedStorage").PlayerRemotes:FindFirstChild(game.Players.LocalPlayer.Name.."|ServerScriptService.Skills.Skills.SkillContainer.Kraken Blade.Slayer Cross Slash"):FireServer()
+   end,
+})
+
 local Tab = Window:CreateTab("Fighting Style", 4483362458)
 
 local Section = Tab:CreateSection("1 SS")
