@@ -117,6 +117,24 @@ end
 
 local Section = Tab:CreateSection("Auto Stats - Soon")
 
+local Tab = Window:CreateTab("Player", 4483362458) -- Title, Image
+
+local Section = Tab:CreateSection("Field Of View")
+
+local Slider = Tab:CreateSlider({
+   Name = "Fov Changer",
+   Range = {0, 150},
+   Increment = 1,
+   Suffix = "FOV",
+   CurrentValue = 70,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+local camera = game.Workspace.CurrentCamera
+camera.FieldOfView = Value -- The function that takes place when the slider changes
+   -- The variable (Value) is a number which correlates to the value the slider is currently at
+   end,
+})
+
 local Tab = Window:CreateTab("ESP", 4483362458) -- Title, Image
 
 local Section = Tab:CreateSection("Peli Chests esp")
@@ -1809,6 +1827,17 @@ local Button = Tab:CreateButton({
    Name = "Chat logger",
    Callback = function()
    loadstring(game:HttpGet("https://pastebin.com/raw/stggPUBM", true))()
+   end,
+})
+
+local Section = Tab:CreateSection("Server Hop")
+
+local Button = Tab:CreateButton({
+   Name = "Server Hop",
+   Callback = function()
+   local module = loadstring(game:HttpGet"https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua")()
+
+module:Teleport(game.PlaceId)
    end,
 })
 
