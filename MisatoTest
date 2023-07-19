@@ -135,6 +135,71 @@ camera.FieldOfView = Value -- The function that takes place when the slider chan
    end,
 })
 
+local Section = Tab:CreateSection("Noclip")
+
+local Button = Tab:CreateButton({
+   Name = "Noclip - G",
+   Callback = function()
+   local Noclip = nil
+local YesClip = nil
+local floatName = "FloatPart"
+
+local player = game.Players.LocalPlayer
+local runService = game:GetService("RunService")
+local userInputService = game:GetService("UserInputService")
+
+local function noclip()
+    YesClip = false
+    local function Nocl()
+        if YesClip == false and player.Character then
+            for _, v in pairs(player.Character:GetDescendants()) do
+                if v:IsA('BasePart') and v.CanCollide and v.Name ~= floatName then
+                    v.CanCollide = false
+                end
+            end
+        end
+        wait(0.21)
+    end
+    Noclip = runService.Stepped:Connect(Nocl)
+end
+
+local function clip()
+    if Noclip then
+        Noclip:Disconnect()
+        Noclip = nil
+    end
+    YesClip = true
+    local character = player.Character
+    if character then
+        for _, v in pairs(character:GetDescendants()) do
+            if v:IsA('BasePart') and v.Name ~= floatName then
+                v.CanCollide = true
+            end
+        end
+    end
+end
+
+local function toggleNoclip()
+    if Noclip then
+        clip()
+    else
+        noclip()
+    end
+end
+
+local function onInput(input, isProcessed)
+    if isProcessed then return end
+    if input.KeyCode == Enum.KeyCode.G then
+        toggleNoclip()
+    end
+end
+
+userInputService.InputBegan:Connect(onInput)
+
+toggleNoclip()
+   end,
+})
+
 local Tab = Window:CreateTab("Battle Royale", 4483362458)
 
 local Section = Tab:CreateSection("Chest Esp")
